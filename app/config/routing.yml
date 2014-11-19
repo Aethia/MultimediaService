@@ -1,0 +1,4 @@
+loria_web_service:
+    resource: "@LoriaWebServiceBundle/Resources/config/routing.yml"
+    prefix:   /
+
