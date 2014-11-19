@@ -1,0 +1,96 @@
+<?php
+
+namespace Loria\WebServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Utilisateur
+ *
+ * @ORM\Table(name="utilisateur")
+ * @ORM\Entity
+ */
+class Utilisateur
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pseudo", type="string", length=25, nullable=false)
+     */
+    private $pseudo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mdp", type="string", length=25, nullable=false)
+     */
+    private $mdp;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateInscription", type="date", nullable=false)
+     */
+    private $dateinscription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=25, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="age", type="integer", nullable=false)
+     */
+    private $age;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="genre", type="string", length=1, nullable=false)
+     */
+    private $genre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pays", type="string", length=25, nullable=false)
+     */
+    private $pays;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Utilisateur", inversedBy="idutilisateur")
+     * @ORM\JoinTable(name="utilisateuramis",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="idUtilisateur", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="idUtilisateurAmi", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $idutilisateurami;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idutilisateurami = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
