@@ -1,0 +1,8 @@
+test : 
+  type: rest
+  resource:     "LoriaWebServiceBundle:GenreRest"
+  name_prefix:  api_
+genres : 
+  type: rest
+  resource:     Loria\WebServiceBundle\Controller\GenreRestController
+  prefix : /genres

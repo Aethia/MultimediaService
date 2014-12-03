@@ -1,3 +1,6 @@
 loria_web_service_homepage:
-    path:     /hello/{name}
+    path:     /loria/{name}
     defaults: { _controller: LoriaWebServiceBundle:Default:index }
+loria_web_service_genrepage:
+    path:     /loria/genre/{id}
+    defaults: { _controller: LoriaWebServiceBundle:Genre:index }

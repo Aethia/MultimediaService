@@ -10,4 +10,13 @@ class DefaultController extends Controller
     {
         return $this->render('LoriaWebServiceBundle:Default:index.html.twig', array('name' => $name));
     }
+	
+	 /**
+     * @Route("/loria/{name}", name="_demo_hello")
+     * @Template()
+     */
+    public function helloAction($name)
+    {
+        return array('name' => $name);
+    }
 }
