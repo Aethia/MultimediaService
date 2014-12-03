@@ -90,5 +90,5 @@ fos_rest:
         default_format: json
 
 sensio_framework_extra:
-    view:
-        annotations: false
+    view: { annotations: false }
+    router: { annotations: true }

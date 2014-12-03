@@ -13,9 +13,14 @@ use FOS\RestBundle\Controller\Annotations\Route;
 use FOS\RestBundle\Controller\Annotations\Method;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
-class GenreRestController extends \FOS\RestBundle\Controller\FOSRestController
+class GenreRestController extends Controller
 {
-
+	/**
+   * 
+   * @param type $id
+   * 
+   * @View(serializerGroups={"Default","Details"})
+   */
   public function getGenreAction($id){
   
 		
@@ -25,10 +30,15 @@ class GenreRestController extends \FOS\RestBundle\Controller\FOSRestController
     }
     return $genre;
   }
+/**
+*
+*@return array
+*@View()
+*/
 
-
-  public function postGenreAction(){
-	return "hu";
+  public function getGenresAction(){
+	$genres = $this->getDoctrine()->getRepository('LoriaWebServiceBundle:Genre')->findAll();
+	return array('genres' => $genres);
  }
   
 }
